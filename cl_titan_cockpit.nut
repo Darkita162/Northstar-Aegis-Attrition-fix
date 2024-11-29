@@ -345,7 +345,8 @@ void function DisplayFrontierRank( bool isFirstBoot = true )
 	GetLocalClientPlayer().Signal( "DisplayFrontierRank" )
 	GetLocalClientPlayer().EndSignal( "DisplayFrontierRank" )
 
-	wait 2.0
+	wait 0.0 //leave this at 0, it forces the animation to play as soon as the spectator cam activates, this should stop disconnects now without having to wait for the replay to end. Why? I don't know
+		 //something to do with it actually being able to find the animation in time and play on the TitanGUI and not the PilotGUI
 
 	TitanLoadoutDef titanLoadout = GetTitanLoadoutFromPersistentData( GetLocalClientPlayer(), GetPersistentSpawnLoadoutIndex( GetLocalClientPlayer(), "titan" ) )
 	string titanClass = titanLoadout.titanClass
